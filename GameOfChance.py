@@ -1,7 +1,11 @@
 import random
 
+print("Welcome to the game of chance.")
 money = 100
-
+#Prints money.
+print("---------------------------------")
+print("You have "+ str(money)+ " bucks." )
+print("---------------------------------")
 def flip_function(guess,bet):
     num=random.randint(1,2)
     print("-----------------------------")
@@ -129,8 +133,14 @@ if flip_rounds_wanna_play == 0:
 elif flip_rounds_wanna_play >= 1:
     for i in range(flip_rounds_wanna_play):
         coin_flip_bet=int(float(input("How much do you want to bet?")))
-        coin_flip_guess=int(input("What is your guess?"))
-        flip_function(coin_flip_guess,coin_flip_bet)
+        if coin_flip_bet <= money:
+            coin_flip_guess=int(input("What is your guess?"))
+            if 1 <= coin_flip_guess <= 2:
+                flip_function(coin_flip_guess,coin_flip_bet)
+            else:
+                print("Enter between 1 and 2.")
+        else:
+            print("You dont have that much money,son.")
 
 ##Calls the Card Game.
 cards_rounds_wanna_play=int(input("How many cards game do you wanna play?"))
@@ -139,21 +149,37 @@ if cards_rounds_wanna_play == 0:
 elif cards_rounds_wanna_play >= 1:
     for i in range(cards_rounds_wanna_play):
         cards_bet=int(float(input("How much do you wanna bet?")))
-        card_game(cards_bet)
+        if cards_bet <= money:
+            card_game(cards_bet)
+        else:
+            print("You dont have that much money,son.")
 ##Calls the even and odds game.
 cho_han_rounds_wanna_play=int(input("How many even and odds round do you want to play?"))
 if cho_han_rounds_wanna_play==0:
     print("You have skipped even and odds game.")
 elif cho_han_rounds_wanna_play>=1:
     for i in range((cho_han_rounds_wanna_play)):
-        cho_han_guess=input("What is your guess? Pick 'Even' or 'Odd'.")
         cho_han_bet=int(float(input("Whats your bet?")))
-        cho_han(cho_han_guess,cho_han_bet)
+        if cho_han_bet <=money:
+            cho_han_guess=input("What is your guess? Pick 'Even' or 'Odd'.")
+            if cho_han_guess =="Even" and cho_han_guess == "Odd":
+                cho_han(cho_han_guess,cho_han_bet)
+            else:
+                print("Please pick between 'Even' and 'Odd')
+        else:
+            print("You dont have that much money,son.")
+
 ##Calls the Roulette game.
 roulette_rounds_wanna_play=int(input("How many roulette rounds do you want to play?"))
 if roulette_rounds_wanna_play == 0:
     print("You have skipped the roulette game.")
 elif roulette_rounds_wanna_play >= 1:
-    roulette_guess=int(input("What is your guess? Choose between 'Even' and 'Odd'."))
     roulette_bet=int(float(input("How much do you want to bet?")))
-    roulette(roulette_guess,roulette_bet)
+    if roulette_bet <= money:
+        roulette_guess=int(input("What is your guess? Choose between 1 and 37."))
+        if 1<= roulette_guess <= 37:
+            roulette(roulette_guess,roulette_bet)
+        else:
+            print("Enter a valid number between 1 and 37.")
+    else:
+        print("You dont have that much money,son.")
