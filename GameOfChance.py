@@ -32,7 +32,7 @@ def flip_function(guess,bet):
         print("You have lost the bet.")
         print("You have lost " + str(bet) + " amount of money")
         return -bet
-
+##The Card game.
 def card_game(bet):
     print("-----------------------------")
     print("Let's play a card game.")
@@ -61,7 +61,7 @@ def card_game(bet):
         print("It's a tie.")
         return 0
 
-
+##The even and odds game.
 def cho_han(guess,bet):
     print("-----------------------------")
     print("Let's play a dice game.")
@@ -70,22 +70,23 @@ def cho_han(guess,bet):
     if bet <= 0:
         print("Your bet should be greater than 0.")
         return 0
-    pirnt("You have chosen " + str(guess) +" and " + str(bet) +" amount of dollars.")
+    print("You have chosen " + str(guess) +" and bet " + str(bet) +" amount of dollars.")
 #Genarates the number.
     first_dice = random.randint(1,6)
     second_dice = random.randint(1,6)
-    total_number=dice1 + dice2
+    total_number=first_dice + second_dice
+    average=total_number%2
 #Starts the game.
-    if total % 2 ==0 and guess == "Even":
+    if average ==0 and guess == "Even":
         print("You have won!!")
         return +bet
-    elif total % 2 !=0 and guess == "Odd":
+    elif average % 2 !=0 and guess == "Odd":
         print("You have won!!")
         return +bet
     else:
+        print("The result was "+ str(average) +" .")
         print("You have lost")
-        return -bet
-
+##The Roulette game.
 def roulette(guess,bet):
     print("-----------------------------")
     print("Let's play a roulette game.")
@@ -100,11 +101,13 @@ def roulette(guess,bet):
     if number == 37:
         print("The wheel landed on 00")
     else:
-        print("The wheel landed on " + str(guess))
+        print("Your Guess is " + str(guess))
+        print("The wheel landed on " + str(number))
 #More rules.
     if guess == "Even" and number % 2 ==0 and number != 0:
         print(str(number) + " is a Even number.")
         print("You have won " + str(bet) + " amount of dollars!!!")
+        return -bet
         return bet
     elif guess == "Odd" and number % 2 ==1 and number != 37:
         print(str(number) + " is a Odd number.")
@@ -116,5 +119,41 @@ def roulette(guess,bet):
         print("You have won "+ str(bet*35)  + " amount of dollars!!")
         return (bet*35)
     else:
-        print("You have lost" + str(bet) + " amount of dollars!!")
+        print("You have lost " + str(bet) + " amount of dollars!!")
         return -bet
+
+##Calls the Coin flip game.
+flip_rounds_wanna_play=int(input("How many coin flip rounds do you wanna play?"))
+if flip_rounds_wanna_play == 0:
+    print("You have skipped the coin flip game.")
+elif flip_rounds_wanna_play >= 1:
+    for i in range(flip_rounds_wanna_play):
+        coin_flip_bet=int(float(input("How much do you want to bet?")))
+        coin_flip_guess=int(input("What is your guess?"))
+        flip_function(coin_flip_guess,coin_flip_bet)
+
+##Calls the Card Game.
+cards_rounds_wanna_play=int(input("How many cards game do you wanna play?"))
+if cards_rounds_wanna_play == 0:
+    print("You have skipped the cards game.")
+elif cards_rounds_wanna_play >= 1:
+    for i in range(cards_rounds_wanna_play):
+        cards_bet=int(float(input("How much do you wanna bet?")))
+        card_game(cards_bet)
+##Calls the even and odds game.
+cho_han_rounds_wanna_play=int(input("How many even and odds round do you want to play?"))
+if cho_han_rounds_wanna_play==0:
+    print("You have skipped even and odds game.")
+elif cho_han_rounds_wanna_play>=1:
+    for i in range((cho_han_rounds_wanna_play)):
+        cho_han_guess=input("What is your guess? Pick 'Even' or 'Odd'.")
+        cho_han_bet=int(float(input("Whats your bet?")))
+        cho_han(cho_han_guess,cho_han_bet)
+##Calls the Roulette game.
+roulette_rounds_wanna_play=int(input("How many roulette rounds do you want to play?"))
+if roulette_rounds_wanna_play == 0:
+    print("You have skipped the roulette game.")
+elif roulette_rounds_wanna_play >= 1:
+    roulette_guess=int(input("What is your guess? Choose between 'Even' and 'Odd'."))
+    roulette_bet=int(float(input("How much do you want to bet?")))
+    roulette(roulette_guess,roulette_bet)
