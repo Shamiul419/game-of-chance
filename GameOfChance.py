@@ -165,7 +165,7 @@ elif cho_han_rounds_wanna_play>=1:
             if cho_han_guess =="Even" and cho_han_guess == "Odd":
                 cho_han(cho_han_guess,cho_han_bet)
             else:
-                print("Please pick between 'Even' and 'Odd')
+                print("Please pick between 'Even' and 'Odd'")
         else:
             print("You dont have that much money,son.")
 
