@@ -26,15 +26,15 @@ def flip_function(guess,bet):
 #Starts the game.
     if guess == "Heads" and num == 1:
         print("You have won!!!")
-        print("You have won " + str(bet)+ " amount of dollars")
+        print("You have won " + str(bet)+ " bucks.")
         return +bet
     elif guess == "Tails" and num == 2:
         print("You have won!!!")
-        print("You have won " + str(bet) + " amount of dollars")
+        print("You have won " + str(bet) + " bucks.")
         return +bet
     else:
         print("You have lost the bet.")
-        print("You have lost " + str(bet) + " amount of money")
+        print("You have lost " + str(bet) + " bucks.")
         return -bet
 ##The Card game.
 def card_game(bet):
