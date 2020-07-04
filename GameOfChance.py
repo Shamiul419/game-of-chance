@@ -55,11 +55,11 @@ def card_game(bet):
 #Starts the game.
     if my_cards > their_cards:
         print("You have won!!!")
-        print("You have won " + str(bet) +" amount of dollars!")
+        print("You have won " + str(bet) +" bucks!")
         return +bet
     elif my_cards < their_cards:
         print("You have lost!!!")
-        print("You have lost " + str(bet) +" amount of dollars!")
+        print("You have lost " + str(bet) +" bucks!")
         return -bet
     elif my_cards==their_cards:
         print("It's a tie.")
@@ -110,20 +110,19 @@ def roulette(guess,bet):
 #More rules.
     if guess == "Even" and number % 2 ==0 and number != 0:
         print(str(number) + " is a Even number.")
-        print("You have won " + str(bet) + " amount of dollars!!!")
+        print("You have won " + str(bet) + " bucks!!!")
         return -bet
         return bet
     elif guess == "Odd" and number % 2 ==1 and number != 37:
         print(str(number) + " is a Odd number.")
-        print("You have won " + str(bet) + " amount of dollars!!!")
         return bet
 #Starts the game.
     elif guess == bet:
         print("You have guessed " + str(guess) + " and the result was " +str(number))
-        print("You have won "+ str(bet*35)  + " amount of dollars!!")
+        print("You have won "+ str(bet*35)  + " bucks!!")
         return (bet*35)
     else:
-        print("You have lost " + str(bet) + " amount of dollars!!")
+        print("You have lost " + str(bet) + " bucks!!")
         return -bet
 
 ##Calls the Coin flip game.
