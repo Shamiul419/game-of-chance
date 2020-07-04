@@ -115,6 +115,7 @@ def roulette(guess,bet):
         return bet
     elif guess == "Odd" and number % 2 ==1 and number != 37:
         print(str(number) + " is a Odd number.")
+        print("You have won " + str(bet) + " bucks!!!")
         return bet
 #Starts the game.
     elif guess == bet:
