@@ -1,7 +1,25 @@
 import random
+money_ask=input("""
+Do you wanna continue with default money.
 
+Which is 100 bucks?
+
+Or add more money?
+
+If you want to add money write "Yes"
+
+If you want to continue with default money press enter
+
+""")
+money=0
+if money_ask== "Yes":
+    money_add=int(input("How much money do you want to add?"))
+    if money_add >0:
+        money=money+money_add
+else:
+    money=100
 print("Welcome to the game of chance.")
-money = 100
+
 #Prints money.
 print("---------------------------------")
 print("You have "+ str(money)+ " bucks." )
@@ -176,10 +194,10 @@ if roulette_rounds_wanna_play == 0:
 elif roulette_rounds_wanna_play >= 1:
     roulette_bet=int(float(input("How much do you want to bet?")))
     if roulette_bet <= money:
-        roulette_guess=int(input("What is your guess? Choose between 1 and 37."))
-        if 1<= roulette_guess <= 37:
+        roulette_guess=int(input("What is your guess? Choose between 0 and 37."))
+        if 0<= roulette_guess <= 37:
             roulette(roulette_guess,roulette_bet)
         else:
-            print("Enter a valid number between 1 and 37.")
+            print("Enter a valid number between 0 and 37.")
     else:
         print("You dont have that much money,son.")
